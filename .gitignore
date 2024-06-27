@@ -17,3 +17,4 @@ imgui.ini
 hand_imitation/env/models/assets/inspire/meshes
 demonstrations/
 examples/relocate_temp.xml
+examples/training_log
