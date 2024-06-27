@@ -7,13 +7,13 @@
                 nuser_actuator="16" nuser_sensor="1"/> -->
         <default class="main">
                 <default class="D_Touch">
-                <site size="0.009 0.004 0.013" group="4" type="box" rgba="0.8 0.8 0.8 0.15"/>
+                        <site size="0.009 0.004 0.013" group="4" type="box" rgba="0.8 0.8 0.8 0.15"/>
                 </default>
                 <default class="DC_Hand">
-                <geom conaffinity="0" group="4" friction="1 0.5 0.01" margin="0.0005"/>
+                        <geom conaffinity="0" group="4" friction="1 0.5 0.01" margin="0.0005"/>
                 </default>
                 <default class="D_Vizual">
-                <geom type="mesh" contype="0" conaffinity="0" group="1" friction="1 0.5 0.01" margin="0.0005"/>
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" friction="1 0.5 0.01" margin="0.0005"/>
                 </default>
         </default>
 
