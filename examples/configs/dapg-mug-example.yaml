@@ -1,0 +1,42 @@
+BC_INIT: false
+DAPG_LAM0: 0.1
+DAPG_LAM1: 0.99
+DEMO_FILE: ../demonstrations/relocate-mug.pkl
+ENV_NAME: relocate-mug-0.8
+JOB_DIR: ./training_log
+JOB_NAME: trpo
+# NUM_ITER: 2000
+POLICY_INIT_LOG_STD: 0.0
+POLICY_WS:
+- 32
+- 32
+RNG_SEED: 200
+# SAVE_FREQ: 100
+# USE_DAPG: false
+NUM_CPU: 10
+
+#New configurations
+#####################################
+NUM_ITER: 3000
+# BC_INIT: true
+USE_DAPG: true
+# DEMO_FILE: ../demonstrations_retargeted/relocate-mustard_bottle.pkl
+# USE_INVDYN_OFPG: true
+
+SAVE_FREQ: 100
+# CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model/best_3200.pickle"
+# CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model/baseline_1500.pickle"
+######################################
+
+
+
+
+# Using Custom fingers
+######################################
+# INVDYN_ONPG_SUBSET: true
+# INVDYN_ONPG_ACT_SUBSET: true
+# CUSTOM_FINGERS: true
+# SDAPG_OBS_R: 27
+# AFF_OBS_R: 27
+# GASIL_OBS_R: 27
+#######################################
