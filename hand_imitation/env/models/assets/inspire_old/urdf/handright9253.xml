@@ -1,0 +1,450 @@
+<mujoco model="handright9253">
+    <!-- 
+    <compiler angle="radian" meshdir="../meshes/"/>
+    <option integrator="RK4" timestep= "0.001"/> 
+    <size njmax="500" nconmax="100" />  -->
+
+
+    <compiler angle="radian"/>
+    <option integrator="RK4" timestep= "0.001" iterations="20" noslip_iterations="20"/> 
+
+    <size njmax="2000" nconmax="500" nstack="600000"/>
+
+    <default class="main">
+        <default class="D_Touch">
+        <site size="0.009 0.004 0.013" group="4" type="box" rgba="0.8 0.8 0.8 0.15"/>
+        </default>
+        <default class="DC_Hand">
+        <geom conaffinity="0" group="4" friction="1 0.5 0.01" margin="0.0005"/>
+        </default>
+        <default class="D_Vizual">
+        <geom type="mesh" contype="0" conaffinity="0" group="1" friction="1 0.5 0.01" margin="0.0005"/>
+        </default>
+    </default>
+       
+
+    <asset>
+        <mesh name="base_link" file="../meshes/base_link.STL" />
+        <mesh name="Link1" file="../meshes/Link1.STL" />
+        <mesh name="Link2" file="../meshes/Link2.STL" />
+        <mesh name="Link3" file="../meshes/Link3.STL" />
+        <mesh name="Link4" file="../meshes/Link4.STL" />
+        <mesh name="Link5" file="../meshes/Link5.STL" />
+        <mesh name="Link11" file="../meshes/Link11.STL" />
+        <mesh name="Link12" file="../meshes/Link12.STL" />
+        <mesh name="Link13" file="../meshes/Link13.STL" />
+        <mesh name="Link14" file="../meshes/Link14.STL" />
+        <mesh name="Link15" file="../meshes/Link15.STL" />
+        <mesh name="Link21" file="../meshes/Link21.STL" />
+        <mesh name="Link22" file="../meshes/Link22.STL" />
+        <mesh name="Link23" file="../meshes/Link23.STL" />
+        <mesh name="Link24" file="../meshes/Link24.STL" />
+        <mesh name="Link25" file="../meshes/Link25.STL" />
+        <mesh name="Link31" file="../meshes/Link31.STL" />
+        <mesh name="Link32" file="../meshes/Link32.STL" />
+        <mesh name="Link33" file="../meshes/Link33.STL" />
+        <mesh name="Link34" file="../meshes/Link34.STL" />
+        <mesh name="Link35" file="../meshes/Link35.STL" />
+        <mesh name="Link41" file="../meshes/Link41.STL" />
+        <mesh name="Link42" file="../meshes/Link42.STL" />
+        <mesh name="Link43" file="../meshes/Link43.STL" />
+        <mesh name="Link44" file="../meshes/Link44.STL" />
+        <mesh name="Link45" file="../meshes/Link45.STL" />
+        <mesh name="Link46" file="../meshes/Link46.STL" />
+        <mesh name="Link47" file="../meshes/Link47.STL" />
+        <mesh name="Link48" file="../meshes/Link48.STL" />
+        <mesh name="Link49" file="../meshes/Link49.STL" />
+        <mesh name="Link50" file="../meshes/Link50.STL" />
+    </asset>
+    <worldbody>
+        <body name="hand" pos="0 -0.7 0.2" quat="0.527628 -0.499842 -0.538306 -0.427051">
+            <inertial pos="0.001 -0.002 0.29" quat="0.982037 -0.0160006 0 -0.188007" mass="4" diaginertia="0.01 0.01 0.0075"/>
+            <joint name="ARTx" pos="0 0 0" axis="0 1 0" type="slide" range="-0.25 0.25" damping="20" limited="true"
+                    margin="0.01" armature="0.001" frictionloss="0.001"/>
+            <joint name="ARTy" pos="0 0 0" axis="-1 0 0" type="slide" range="0 0.2" damping="20" limited="true" margin="0.01"
+                    armature="0.001" frictionloss="0.001"/>
+            <joint name="ARTz" pos="0 0 0" axis="0 0 1" type="slide" range="-0.3 0.5" damping="20" limited="true"
+                    margin="0.01" armature="0.001" frictionloss="0.001"/> 
+             <joint name="ARRx" pos="0 0 0" axis="0 1 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                    armature="0.001" frictionloss="0.001"/>
+            <joint name="ARRy" pos="0 0 0" axis="-1 0 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                    armature="0.001" frictionloss="0.001"/>
+            <joint name="ARRz" pos="0 0 0" axis="0 0 1" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                    armature="0.001" frictionloss="0.001"/> 
+            <geom name="V_base_link" class="D_Vizual" pos="0.5 0.5 0.5" quat="0.707107 -0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="base_link" />
+            <geom name="C_base_link" class="DC_Hand" pos="0.5 0.5 0.5" quat="0.707107 -0.707107 0 0" type="mesh" rgba="1 1 1 1" mesh="base_link" />
+
+            <site name="S_grasp" pos="0.007 -0.05 0.07" quat="0.00863043 -0.595202 -0.00337281 -0.803523" size="0.01"
+                    rgba="0 0 0 0"/>
+            <site name="Tch_ffmetacarpal" class="D_Touch" pos="0.033 -0.008 0.078" size="0.009 0.004 0.006"/>
+            <site name="Tch_mfmetacarpal" class="D_Touch" pos="0.011 -0.008 0.074" size="0.009 0.004 0.014"/>
+            <site name="Tch_rfmetacarpal" class="D_Touch" pos="-0.011 -0.008 0.068" size="0.009 0.004 0.016"/>
+            <site name="Tch_thmetacarpal" class="D_Touch" pos="0.006 -0.008 0.042" quat="0.959662 0 0.281157 0"
+                    size="0.008 0.004 0.015"/>
+            <site name="Tch_palm" class="D_Touch" pos="-0.017 -0.008 0.024" quat="0.877583 0 -0.479426 0"
+                    size="0.012 0.004 0.016"/>
+
+            <body name="Link1" pos="0.50629 0.47654 0.556236" quat="0.71934 -0.694658 0 0">
+                <inertial pos="-0.0017642 -0.028543 -2.2385e-07" quat="0.507422 0.492537 -0.507362 0.492457" mass="0.0069755" diaginertia="2.0272e-06 1.99544e-06 1.46269e-07" />
+                <joint name="joint01" pos="0 0 0" axis="0 0 -1" limited="true" range="-0.05 0.05"/>
+                <geom name="V_Link1" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link1" />
+                <geom name="C_Link1" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link1" />
+
+                <body name="Link2" pos="-0.0010813 -0.050714 0" quat="0.682724 -0.678647 0.198594 0.184083">
+                    <inertial pos="-1.6261e-10 2.3732e-10 -0.011292" quat="0.870643 0 0 0.491915" mass="0.00030666" diaginertia="1.44831e-08 1.44489e-08 6.5358e-10" />
+                    <joint name="joint12" pos="0 0 0" axis="0 0 -1" type="slide" limited="true" range="0 0.01" />
+                    <geom name="V_Link2" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link2" />
+                    <geom name="C_Link2" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link2" />
+                    <body name="Link3" pos="0.00046892 0.00076819 -0.0244" quat="0.184097 -0.198609 -0.678643 0.68272">
+                        <inertial pos="0.0031774 0.017383 0.00090008" quat="0.491211 0.50867 -0.491172 0.508643" mass="0.0042403" diaginertia="6.9398e-07 6.62871e-07 2.10909e-07" />
+                        <joint name="joint23" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1.7" />
+                        <geom name="V_Link3" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link3" />
+                        <geom name="C_Link3" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link3" />
+                        <site name="S_index_bottom" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
+                        <site name="Tch_index_botom" class="D_Touch" pos="0 -0.004 0.018"/>   
+
+                        <body name="Link4" pos="0.0070171 0.037468 -0.00215">
+                            <inertial pos="-0.0019697 0.019589 0.00305" quat="0.531152 0.466773 -0.531153 0.466773" mass="0.0045683" diaginertia="7.8179e-07 7.72465e-07 8.47212e-08" />
+                            <joint name="joint34" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7 0" />
+                            <geom name="V_Link4" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link4" />
+                            <geom name="C_Link4" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link4" />
+                            <site name="S_index_tip" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
+                            <site name="Tch_index_tip" class="D_Touch" pos="0 -0.004 0.018"/>   
+
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="Link5" pos="0.49454 0.469899 0.63178" quat="-2.55162e-06 2.64228e-06 0.694658 0.71934">
+                <inertial pos="-0.0038588 0.015743 0.004" quat="0.436222 0.556516 -0.436222 0.556516" mass="0.00031561" diaginertia="5.1996e-08 5.16538e-08 7.84769e-10" />
+                <joint name="joint05" pos="0 0 0" axis="0 0 1" limited="true" range="-2 0" />
+                <geom name="V_Link5" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link5" />
+                <geom name="C_Link5" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link5" />
+
+
+            </body>
+
+
+
+            <body name="Link11" pos="0.50629 0.49305 0.55655" quat="0.707107 -0.707107 0 0">
+                <inertial pos="-0.0017767 -0.028542 -2.303e-07" quat="0.507528 0.492423 -0.507473 0.492347" mass="0.0069755" diaginertia="2.0272e-06 1.99539e-06 1.4627e-07" />
+                <joint name="joint011" pos="0 0 0" axis="0 0 -1" limited="true" range="-0.05 0.05" />
+                <geom name="V_Link11" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link11" />
+                <geom name="C_Link11" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link11" />
+                <body name="Link12" pos="-0.0011031 -0.050343 -0.018279" quat="0.51396 -0.485639 0.496704 0.503275">
+                    <inertial pos="-0.018674 6.5223e-06 -0.010992" quat="0.999848 0 0.0174488 0" mass="0.00030666" diaginertia="1.44828e-08 1.4449e-08 6.53583e-10" />
+                    <joint name="joint1112" pos="0 0 0" axis="0 0 -1" type="slide" limited="true" range="0 0.01" />
+                    <geom name="V_Link12" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link12" />
+                    <geom name="C_Link12" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link12" />
+                    <body name="Link13" pos="-0.018232 0 -0.024124" quat="0.503273 -0.496704 -0.485639 0.513962">
+                        <inertial pos="0.0030737 0.017402 0.00090013" quat="0.489693 0.510131 -0.489653 0.510105" mass="0.0042403" diaginertia="6.9397e-07 6.62865e-07 2.10915e-07" />
+                        <joint name="joint1213" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1.7" />
+                        <geom name="V_Link13" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link13" />
+                        <geom name="C_Link13" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link13" />
+                        <site name="S_middle_bottom" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
+                        <site name="Tch_middle_botom" class="D_Touch" pos="0 -0.004 0.018"/>             
+
+                        
+                        <body name="Link14" pos="0.0067937 0.037509 -0.00215">
+                            <inertial pos="-0.001921 0.020796 0.00305" quat="0.531626 0.466147 -0.531705 0.466229" mass="0.0050396" diaginertia="9.8384e-07 9.73279e-07 9.14014e-08" />
+                            <joint name="joint1314" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1.7" />
+                            <geom name="V_Link14" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link14" />
+                            <geom name="C_Link14" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link14" />
+                            <site name="S_middle_tip" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
+                            <site name="Tch_middle_tip" class="D_Touch" pos="0 -0.004 0.018"/>   
+
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="Link15" pos="0.49454 0.48905 0.63228" quat="-2.59735e-06 2.59735e-06 0.707107 0.707107">
+                <inertial pos="-0.0039265 0.015726 0.004" quat="0.43502 0.557456 -0.43502 0.557456" mass="0.00031561" diaginertia="5.1996e-08 5.16535e-08 7.84516e-10" />
+                <joint name="joint015" pos="0 0 0" axis="0 0 1" limited="true" range="-2 0" />
+                <geom name="V_Link15" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link15" />
+                <geom name="C_Link15" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link15" />
+            </body>
+            <body name="Link21" pos="0.50629 0.508063 0.556157" quat="0.688355 -0.725374 0 0">
+                <inertial pos="-0.0017767 -0.028542 -2.2887e-07" quat="0.507528 0.492423 -0.507473 0.492347" mass="0.0069755" diaginertia="2.0272e-06 1.99539e-06 1.4627e-07" />
+                <joint name="joint021" pos="0 0 0" axis="0 0 1" limited="true" range="-0.05 0.05" />
+                <geom name="V_Link21" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link21" />
+                <geom name="C_Link21" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link21" />
+                <body name="Link22" pos="-0.0011031 -0.050688 0" quat="0.505148 -0.494244 0.50569 0.494798">
+                    <inertial pos="7.7552e-11 1.8671e-10 -0.011292" mass="0.00030666" diaginertia="1.4483e-08 1.4449e-08 6.5358e-10" />
+                    <joint name="joint2122" pos="0 0 0" axis="0 0 -1" type="slide" limited="true" range="0 0.01" />
+                    <geom name="V_Link22" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link22" />
+                    <geom name="C_Link22" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link22" />
+                    <body name="Link23" pos="0.0009 0 -0.0244" quat="0.494807 -0.505682 -0.494255 0.505138">
+                        <inertial pos="0.0030737 0.017402 0.00090015" quat="0.489691 0.510129 -0.489655 0.510107" mass="0.0042403" diaginertia="6.9397e-07 6.62865e-07 2.10915e-07" />
+                        <joint name="joint2223" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1.7" />
+                        <geom name="V_Link23" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link23" />
+                        <geom name="C_Link23" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link23" />
+                        <site name="S_ring_bottom" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
+                        <site name="Tch_ring_botom" class="D_Touch" pos="0 -0.004 0.018"/>   
+
+                        <body name="Link24" pos="0.0067937 0.037509 -0.00215">
+                            <inertial pos="-0.0021753 0.019567 0.00305" quat="0.528695 0.469554 -0.528695 0.469554" mass="0.0045683" diaginertia="7.8177e-07 7.72448e-07 8.4722e-08" />
+                            <joint name="joint2324" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7 0" />
+                            <geom name="V_Link24" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link24" />
+                            <geom name="C_Link24" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link24" />
+                            <site name="S_ring_tip" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
+                            <site name="Tch_ring_tip" class="D_Touch" pos="0 -0.004 0.018"/>   
+
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="Link25" pos="0.49454 0.508032 0.63199" quat="-2.66445e-06 2.52847e-06 -0.725374 -0.688355">
+                <inertial pos="-0.0039265 0.015726 0.004" quat="0.43502 0.557456 -0.43502 0.557456" mass="0.00031561" diaginertia="5.1996e-08 5.16535e-08 7.84516e-10" />
+                <joint name="joint025" pos="0 0 0" axis="0 0 1" limited="true" range="-2 0" />
+                <geom name="V_Link25" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link25" />
+                <geom name="C_Link25" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link25" />
+            </body>
+            <body name="Link31" pos="0.50629 0.523035 0.554979" quat="0.669131 -0.743145 0 0">
+                <inertial pos="-0.0017767 -0.028542 -2.2872e-07" quat="0.507528 0.492423 -0.507474 0.492348" mass="0.0069755" diaginertia="2.0272e-06 1.99539e-06 1.4627e-07" />
+                <joint name="joint031" pos="0 0 0" axis="0 0 1" limited="true" range="-0.05 0.05" />
+                <geom name="V_Link31" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link31" />
+                <geom name="C_Link31" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link31" />
+                <body name="Link32" pos="-0.0011031 -0.050688 0" quat="0.504851 -0.493941 0.505987 0.495101">
+                    <inertial pos="2.6333e-10 5.3616e-10 -0.011292" mass="0.00030666" diaginertia="1.4483e-08 1.4449e-08 6.5358e-10" />
+                    <joint name="joint3132" pos="0 0 0" axis="0 0 -1" type="slide" limited="true" range="0 0.01" />
+                    <geom name="V_Link32" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link32" />
+                    <geom name="C_Link32" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link32" />
+                    <body name="Link33" pos="0.0009 0 -0.0244" quat="0.49511 -0.505978 -0.493951 0.504841">
+                        <inertial pos="0.0030737 0.017402 0.00090014" quat="0.489692 0.510129 -0.489654 0.510107" mass="0.0042403" diaginertia="6.9398e-07 6.62865e-07 2.10915e-07" />
+                        <joint name="joint3233" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7 0" />
+                        <geom name="V_Link33" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link33" />
+                        <geom name="C_Link33" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link33" />
+                        <site name="S_pinky_bottom" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
+                        <site name="Tch_pinky_botom" class="D_Touch" pos="0 -0.004 0.018"/>   
+
+                        <body name="Link34" pos="0.0067937 0.037509 -0.00215">
+                            <inertial pos="-0.0024748 0.016203 0.0030531" quat="0.528862 0.47398 -0.524799 0.469291" mass="0.0035996" diaginertia="4.4867e-07 4.43723e-07 6.56538e-08" />
+                            <joint name="joint3334" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1.7" />
+                            <geom name="V_Link34" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link34" />
+                            <geom name="C_Link34" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link34" />
+                            <site name="S_pinky_tip" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
+                            <site name="Tch_pinky_tip" class="D_Touch" pos="0 -0.004 0.018"/>   
+
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="Link35" pos="0.49454 0.526973 0.63071" quat="-2.72972e-06 2.45785e-06 -0.743145 -0.669131">
+                <inertial pos="-0.0039265 0.015726 0.004" quat="0.43502 0.557456 -0.43502 0.557456" mass="0.00031561" diaginertia="5.1996e-08 5.16535e-08 7.84516e-10" />
+                <joint name="joint035" pos="0 0 0" axis="0 0 1" limited="true" range="-2 0" />
+                <geom name="V_Link35" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link35" />
+                <geom name="C_Link35" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link35" />
+            </body>
+            <body name="Link41" pos="0.48904 0.52985 0.56025" quat="-0.00447519 3.68133e-06 1.86642e-06 -0.99999">
+                <inertial pos="3.252e-10 0.022007 0.0065979" quat="0.652791 0.757538 0 0" mass="0.0092961" diaginertia="1.5208e-06 1.15609e-06 5.42407e-07" />
+                <joint name="joint041" pos="0 0 0" axis="0 0 -1" limited="true" range="-0.02 0.02" />
+                <geom name="V_Link41" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link41" />
+                <geom name="C_Link41" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link41" />
+                <body name="Link42" pos="0 0.027687 0" quat="0.707105 0.707108 0 0">
+                    <inertial pos="5.0532e-09 -1.4449e-09 -0.011425" quat="0.707107 0 0 0.707107" mass="0.00016153" diaginertia="7.177e-09 7.1494e-09 2.337e-10" />
+                    <joint name="joint4142" pos="0 0 0" axis="0 0 -1" type="slide" limited="true" range="0 0.01" />
+                    <geom name="V_Link42" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link42" />
+                    <geom name="C_Link42" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link42" />
+                    <body name="Link43" pos="0 -0.0026 -0.01955" quat="0.502243 -0.502245 -0.497745 -0.497747">
+                        <inertial pos="-0.0078715 0.0065154 0.00388" quat="0.515015 0.680854 0.408023 0.323596" mass="0.0018869" diaginertia="8.66026e-08 6.8732e-08 4.94194e-08" />
+                        <joint name="joint4243" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1.2" />
+                        <geom name="V_Link43" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link43" />
+                        <geom name="C_Link43" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link43" />
+                        <body name="Link44" pos="-0.012782 0.013348 0.0022" quat="0.0996843 0.0996847 0.700046 0.700044">
+                            <inertial pos="0.021932 0.012785 -0.0047886" quat="-0.254484 0.660712 0.251903 0.659729" mass="0.0066075" diaginertia="2.78601e-06 2.43937e-06 8.64621e-07" />
+                            <joint name="joint4344" pos="0 0 0" axis="0 0 -1" limited="true" range="-0.5 0" />
+                            <geom name="V_Link44" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link44" />
+                            <geom name="C_Link44" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link44" />
+                            <body name="Link45" pos="0.0083049 -0.0034513 -0.00475" quat="0.0744546 -0.956966 -0.279641 0.0217568">
+                                <inertial pos="0.02194 -0.0065438 0.0010242" quat="0.107453 0.698894 0.00189293 0.707105" mass="0.0092256" diaginertia="1.50626e-06 1.14509e-06 5.37422e-07" />
+                                <joint name="joint4445" pos="0 0 0" axis="0 -0.15464 -0.987971" limited="true" range="0 0.4" />
+                                <geom name="V_Link45" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link45" />
+                                <geom name="C_Link45" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link45" />
+                                <body name="Link46" pos="0.02428 0 0" quat="0.0548478 0.704976 -0.054853 -0.704976">
+                                    <inertial pos="0 0 -0.01215" mass="0.00017549" diaginertia="8.3803e-09 8.3341e-09 2.4208e-10" />
+                                    <joint name="joint4546" pos="0 0 0" axis="0 0 -1" type="slide" limited="true" range="0 0.01" />
+                                    <geom name="V_Link46" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link46" />
+                                    <geom name="C_Link46" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link46" />
+                                    <body name="Link47" pos="0.001 0 -0.0223" quat="0.678722 -0.198332 -0.678723 0.198332">
+                                        <inertial pos="-0.0060688 0.011295 0.00099972" quat="0.307389 0.636718 -0.307548 0.636802" mass="0.0037847" diaginertia="4.6531e-07 4.48089e-07 2.45661e-07" />
+                                        <joint name="joint4647" pos="0 0 0" axis="0 0 -1" limited="true" range="0 0.8" />
+                                        <geom name="V_Link47" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link47" />
+                                        <geom name="C_Link47" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link47" />
+                                        <body name="Link48" pos="-0.016763 0.023079 -0.00255">
+                                            <inertial pos="-0.0092888 0.0049529 0.0035533" quat="0.266292 0.655966 -0.262808 0.655537" mass="0.0033441" diaginertia="2.0026e-07 1.95247e-07 8.1593e-08" />
+                                            <joint name="joint4748" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1.2" />
+                                            <geom name="V_Link48" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link48" />
+                                            <geom name="C_Link48" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link48" />
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                            <body name="Link49" pos="0.036109 0.035336 -0.0033" quat="1.34924e-11 -3.67321e-06 -1 3.67321e-06">
+                                <inertial pos="-0.017737 0.0022319 0.00145" quat="0.040459 0.705948 -0.040459 0.705948" mass="0.00021109" diaginertia="2.5965e-08 2.57946e-08 4.66787e-10" />
+                                <joint name="joint4449" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1" />
+                                <geom name="V_Link49" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link49" />
+                                <geom name="C_Link49" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link49" />
+                            </body>
+                        </body>
+                        <body name="Link50" pos="-0.010085 0.014283 0.010893" quat="0.0996843 0.0996847 0.700046 0.700044">
+                            <inertial pos="0.023451 0.0093386 -0.0005" quat="-0.132605 0.694562 0.132605 0.694562" mass="0.00031643" diaginertia="7.6534e-08 7.56136e-08 9.73438e-10" />
+                            <joint name="joint4350" pos="0 0 0" axis="0 0 -1" limited="true" range="-1 0" />
+                            <geom name="V_Link50" class="D_Vizual" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="Link50" />
+                            <geom name="C_Link50" class="DC_Hand" type="mesh" rgba="1 1 1 1" mesh="Link50" />
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+        
+    </worldbody>
+
+    <contact>
+        <pair geom1="C_base_link" geom2="C_Link4"  condim="1" />
+        <pair geom1="C_base_link" geom2="C_Link5"  condim="1" />
+   
+        <pair geom1="C_base_link" geom2="C_Link14" condim="1" />
+        <pair geom1="C_base_link" geom2="C_Link15" condim="1" />
+
+        <pair geom1="C_base_link" geom2="C_Link24" condim="1" />
+        <pair geom1="C_base_link" geom2="C_Link25" condim="1" />
+
+        <pair geom1="C_base_link" geom2="C_Link34" condim="1" />
+        <pair geom1="C_base_link" geom2="C_Link35" condim="1" />
+
+        <pair geom1="C_Link49" geom2="C_Link44"    condim="1" />
+        <pair geom1="C_Link45" geom2="C_Link44"    condim="1" />
+
+
+        <!-- Thumb colliding with fingers lower,middle and tip-->
+        <pair geom1="C_Link44" geom2="C_Link4"     condim="1" />
+        <pair geom1="C_Link44" geom2="C_Link14"    condim="1" />
+        <pair geom1="C_Link44" geom2="C_Link24"    condim="1" />
+        <pair geom1="C_Link44" geom2="C_Link34"    condim="1" />
+
+        <pair geom1="C_Link47" geom2="C_Link4"     condim="1" />
+        <pair geom1="C_Link47" geom2="C_Link14"    condim="1" />
+        <pair geom1="C_Link47" geom2="C_Link24"    condim="1" />
+        <pair geom1="C_Link47" geom2="C_Link34"    condim="1" />
+
+        <pair geom1="C_Link48" geom2="C_Link4"     condim="1" />
+        <pair geom1="C_Link48" geom2="C_Link14"    condim="1" />
+        <pair geom1="C_Link48" geom2="C_Link24"    condim="1" />
+        <pair geom1="C_Link48" geom2="C_Link34"    condim="1" />
+
+        <pair geom1="C_Link48" geom2="C_Link3"     condim="1" />
+        <pair geom1="C_Link48" geom2="C_Link13"    condim="1" />
+        <pair geom1="C_Link48" geom2="C_Link23"    condim="1" />
+        <pair geom1="C_Link48" geom2="C_Link33"    condim="1" />
+
+        <pair geom1="C_Link48" geom2="C_base_link"    condim="1" />
+    </contact>
+
+    <equality>
+        <weld body1="Link5" body2="Link3"  active="true"/>
+        <weld body1="Link15" body2="Link13"/>
+        <weld body1="Link25" body2="Link23"/>
+        <weld body1="Link35" body2="Link33"/>
+        <weld body1="Link45" body2="Link44"/>
+        <weld body1="Link49" body2="Link47"/>
+        <weld body1="Link50" body2="Link44"/>
+        <weld body1="Link41" body2="hand"/>
+        <!-- <weld body1="Link43" body2="hand" active="true"/> -->
+        <!-- <weld body1="Link45" body2="Link43"/> -->
+    </equality>
+
+    <tendon>
+
+        <!-- <fixed name="T_indexc" range="-0.01 0.01" limited="true">
+            <joint joint="joint12" coef="0.00705"/>
+            <joint joint="joint34" coef="-0.00805"/>
+        </fixed>
+        <fixed name="T_indexu" range="-0.007 0.03" user="1200" limited="true">
+            <joint joint="joint12" coef="0.00705"/>
+            <joint joint="joint34" coef="0.00805"/>
+        </fixed>
+        <fixed name="T_indexd" range="-0.03 0.007" user="1201" limited="true">
+            <joint joint="joint12" coef="-0.00705"/>
+            <joint joint="joint34" coef="-0.00805"/>
+        </fixed> -->
+
+        <fixed name="T_indexc" range="-0.01 0.01" limited="true">
+            <joint joint="joint01" coef="0.00705"/>
+            <joint joint="joint34" coef="-0.00805"/>
+        </fixed>
+        <fixed name="T_indexu" range="-0.007 0.03" user="1200" limited="true" >
+            <joint joint="joint01" coef="0.00705"/>
+            <joint joint="joint34" coef="0.00805"/>
+        </fixed>
+        <fixed name="T_indexd" range="-0.03 0.007" user="1201" limited="true" >
+            <joint joint="joint01" coef="-0.00705"/>
+            <joint joint="joint34" coef="-0.00805"/>
+        </fixed>
+
+
+        <!-- <fixed name="T_middlec" range="-0.01 0.01" limited="true" >
+            <joint joint="joint011" coef="0.00705"/>
+            <joint joint="joint1314" coef="-0.00805"/>
+        </fixed>
+        <fixed name="T_middleu" range="-0.007 0.03" limited="true" stiffness="10">
+            <joint joint="joint011" coef="0.00705"/>
+            <joint joint="joint1314" coef="0.00805"/>
+        </fixed>
+        <fixed name="T_middled" range="-0.03 0.007" limited="true" stiffness="5">
+            <joint joint="joint011" coef="-0.00705"/>
+            <joint joint="joint1314" coef="-0.00805"/>
+        </fixed> -->
+
+        <!-- <fixed name="T_ring" range="0 0.03" user="1201" limited="true" stiffness="0.5" damping="0.01">
+            <joint joint="joint2223" coef="0.00705"/>
+            <joint joint="joint2324" coef="0.00805"/>
+        </fixed>
+
+        <fixed name="T_pinky" range="0 0.03" user="1201" limited="true" stiffness="0.5" damping="0.01">
+            <joint joint="joint3233" coef="0.00705"/>
+            <joint joint="joint3334" coef="0.00805"/>
+        </fixed>  -->
+
+    </tendon>
+
+
+    <actuator>
+
+        <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-50 0.25"
+                gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTx" name="A_ARTx"
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0"/>
+        <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="30 60"
+                gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTy" name="A_ARTy"
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0"/>
+        <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.3 0.5"
+                gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTz" name="A_ARTz"
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0"/>
+
+        <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75"
+                gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRx" name="A_ARRx"
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0"/>
+        <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.8 1"
+                gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRy" name="A_ARRy"
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0"/>
+        <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75"
+                gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRz" name="A_ARRz"
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0"/>
+
+        <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" name="index"    joint="joint12"   ctrllimited="true" ctrlrange="-1 1"
+                user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0"/>
+        <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" name="middle"   joint="joint1112" ctrllimited="true" ctrlrange="-1 1"
+                user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0"/>
+        <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" name="ring"     joint="joint2122" ctrllimited="true" ctrlrange="-1 1"
+                user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0"/>
+        <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" name="pinky"    joint="joint3132" ctrllimited="true" ctrlrange="-1 1"
+                user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0"/>
+        <!-- <general name="t_rotate" joint="joint4142" ctrllimited="true" ctrlrange="-1 1"/> -->
+        <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" name="t_rotate" joint="joint4243" ctrllimited="true" ctrlrange="-0.1 0.1"
+                user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0"/>
+        <general biasprm="0 -1 0 0 0 0 0 0 0 0" biastype="affine" name="thumb"    joint="joint4546" ctrllimited="true" ctrlrange="-1 1"
+                user="1002 0 2001 -0.1 0.1 0 0 0 0 0 0 0 0 0 0 0"/>
+
+
+    </actuator> 
+
+</mujoco>
