@@ -59,7 +59,7 @@ def main(env_name, object_name):
         policy = f"../pretrained_model/{env_name}-{object_name}.pickle"
 
     else:
-        policy = f"../pretrained_model/{env_name}.pickle"
+        policy = f"../{env_name}.pickle"
 
     pi = pickle.load(open(policy, 'rb'))
     for _ in range(100):
