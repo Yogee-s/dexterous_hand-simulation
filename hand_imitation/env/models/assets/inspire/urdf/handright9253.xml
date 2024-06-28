@@ -10,11 +10,12 @@
                         <site size="0.009 0.004 0.013" group="4" type="box" rgba="0.8 0.8 0.8 0.15"/>
                 </default>
                 <default class="DC_Hand">
-                        <geom contype="1" conaffinity="1" group="4" friction="1 0.5 0.01" margin="0.0005"/>
+                        <!-- <geom contype="1" conaffinity="1" group="4" friction="1 0.5 0.01" margin="0.0005"/> -->
+                        <geom contype="1" conaffinity="1" group="4" friction="1 0.5 0.01" margin="0.0001"/>
                 </default>
                 <default class="D_Vizual">
                         <!-- <geom type="mesh" contype="1" conaffinity="1" group="1" friction="1 0.5 0.01" margin="0.0005"/> -->
-                        <geom type="mesh" conaffinity="1" group="1" friction="1 0.5 0.01" margin="0.0005"/>
+                        <geom type="mesh" conaffinity="1" group="1" friction="1 0.5 0.01" margin="0.0001"/>
                 </default>
         </default>
 
@@ -167,27 +168,42 @@
         </worldbody>
 
         <contact>
-                <pair geom1="C_thumb_proximal" geom2="C_hand" condim="1"/>
-                <pair geom1="C_thumb_intermediate" geom2="C_hand" condim="1"/>
                 <pair geom1="C_thumb_distal" geom2="C_hand" condim="1"/>
+                <pair geom1="C_thumb_intermediate" geom2="C_hand" condim="1"/>
+                <pair geom1="C_thumb_proximal" geom2="C_hand" condim="1"/>
                 <pair geom1="C_thumb_proximal_base" geom2="C_hand" condim="1"/>
 
+                <!-- Finger bottom colliding with Thumb tip,middle and base -->
+                <pair geom1="C_index_proximal"  geom2="C_thumb_distal" condim="1"/>
+                <pair geom1="C_middle_proximal" geom2="C_thumb_distal" condim="1"/>
+                <pair geom1="C_ring_proximal"   geom2="C_thumb_distal" condim="1"/>
+                <pair geom1="C_pinky_proximal"  geom2="C_thumb_distal" condim="1"/>
+
+                <pair geom1="C_index_proximal"  geom2="C_thumb_intermediate" condim="1"/>
+                <pair geom1="C_middle_proximal" geom2="C_thumb_intermediate" condim="1"/>
+                <pair geom1="C_ring_proximal"   geom2="C_thumb_intermediate" condim="1"/>
+                <pair geom1="C_pinky_proximal"  geom2="C_thumb_intermediate" condim="1"/>
 
                 <pair geom1="C_index_proximal" geom2="C_thumb_proximal" condim="1"/>
                 <pair geom1="C_middle_proximal" geom2="C_thumb_proximal" condim="1"/>
                 <pair geom1="C_ring_proximal" geom2="C_thumb_proximal" condim="1"/>
                 <pair geom1="C_pinky_proximal" geom2="C_thumb_proximal" condim="1"/>
 
-                <pair geom1="C_index_proximal"  geom2="C_thumb_distal" condim="1"/>
-                <pair geom1="C_middle_proximal" geom2="C_thumb_distal" condim="1"/>
-                <pair geom1="C_ring_proximal"   geom2="C_thumb_distal" condim="1"/>
-                <pair geom1="C_pinky_proximal"  geom2="C_thumb_distal" condim="1"/>
-
-
+                <!-- Finger tips colliding with Thumb tip,middle and lower -->
                 <pair geom1="C_index_distal"  geom2="C_thumb_distal" condim="1"/>
                 <pair geom1="C_middle_distal" geom2="C_thumb_distal" condim="1"/>
                 <pair geom1="C_ring_distal"   geom2="C_thumb_distal" condim="1"/>
                 <pair geom1="C_pinky_distal"  geom2="C_thumb_distal" condim="1"/>
+
+                <pair geom1="C_index_distal"  geom2="C_thumb_intermediate" condim="1"/>
+                <pair geom1="C_middle_distal" geom2="C_thumb_intermediate" condim="1"/>
+                <pair geom1="C_ring_distal"   geom2="C_thumb_intermediate" condim="1"/>
+                <pair geom1="C_pinky_distal"  geom2="C_thumb_intermediate" condim="1"/>
+
+                <pair geom1="C_index_distal"  geom2="C_thumb_proximal" condim="1"/>
+                <pair geom1="C_middle_distal" geom2="C_thumb_proximal" condim="1"/>
+                <pair geom1="C_ring_distal"   geom2="C_thumb_proximal" condim="1"/>
+                <pair geom1="C_pinky_distal"  geom2="C_thumb_proximal" condim="1"/>
         </contact>    
 
 
