@@ -39,24 +39,24 @@
         
         <worldbody>
                 <body name="forearm" pos="0 -0.7 0.2" quat="0.000563312 -0.000562864 0.706825 0.707388">
-                        <inertial pos="-0.5 -0.8 0.9" quat="0.982037 -0.0160006 0 -0.188007" mass="0.5" diaginertia="0.01 0.01 0.0075"/>
-                        <joint name="ARTx" pos="0 0 0" axis="1 0 0" type="slide" range="-0.25 0.25" damping="35" limited="true"
+                        <inertial pos="-0.5 -0.8 0.9" quat="0.982037 -0.0160006 0 -0.188007" mass="0.05" diaginertia="0.01 0.01 0.0075"/>
+                        <joint name="ARTx" pos="0 0 0" axis="1 0 0" type="slide" range="-0.25 0.25" damping="20" limited="true"
                                 margin="0.01" armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARTy" pos="0 0 0" axis="0 1 0" type="slide" range="-0.75 0.75" damping="35" limited="true" margin="0.01"
+                        <joint name="ARTy" pos="0 0 0" axis="0 1 0" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARTz" pos="0 0 0" axis="0 0 1" type="slide" range="-0.3 0.5" damping="35" limited="true"
+                        <joint name="ARTz" pos="0 0 0" axis="0 0 1" type="slide" range="-0.3 0.5" damping="20" limited="true"
                                 margin="0.01" armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARRx" pos="0 0 0" axis="1 0 0" range="-0.75 0.75" damping="35" limited="true" margin="0.01"
+                        <joint name="ARRx" pos="0 0 0" axis="1 0 0" range="-0.75 0.75" damping="30" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARRy" pos="0 0 0" axis="0 1 0" range="-0.75 0.75" damping="35" limited="true" margin="0.01"
+                        <joint name="ARRy" pos="0 0 0" axis="0 1 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARRz" pos="0 0 0" axis="0 0 1" range="-1.75 1.75" damping="35" limited="true" margin="0.01"
-                                armature="0.001" frictionloss="0.001"/>
+                        <joint name="ARRz" pos="0 0 0" axis="0 0 1" range="-0.75 0.75" damping="35" limited="true" margin="0.01"
+                                armature="0.001" frictionloss="0.01"/>
                         <geom name="V_forearm" class="D_Vizual" pos="0 -0.01 0.181" quat="0.707388 0 0 -0.706825" mesh="forearm_simple"/>
                         <geom name="C_forearm1" class="DC_Hand" size="0.08 0.053" pos="0 0 0.29" type="capsule" rgba="0.4 0.5 0.6 0.1"/>
 
                         <body name="wrist" pos="0 0 0.396">
-                                <inertial pos="0.003 0 0.016" quat="0.504234 0.49623 0.49523 0.504234" mass="0.1"
+                                <inertial pos="0.003 0 0.016" quat="0.504234 0.49623 0.49523 0.504234" mass="0.2"
                                         diaginertia="0.001 0.001 0.001"/>
 
                                 <geom name="V_wrist" class="D_Vizual" mesh="wrist"/>
@@ -71,13 +71,13 @@
 
                                         <site name="S_grasp" pos="0.007 -0.05 0.07" quat="0.00863043 -0.595202 -0.00337281 -0.803523" size="0.01"
                                                 rgba="0 0 0 0"/>
-                                        <site name="Tch_ffmetacarpal" class="D_Touch" pos="0.033 -0.008 0.078" size="0.009 0.004 0.006"/>
+                                        <!-- <site name="Tch_ffmetacarpal" class="D_Touch" pos="0.033 -0.008 0.078" size="0.009 0.004 0.006"/>
                                         <site name="Tch_mfmetacarpal" class="D_Touch" pos="0.011 -0.008 0.074" size="0.009 0.004 0.014"/>
                                         <site name="Tch_rfmetacarpal" class="D_Touch" pos="-0.011 -0.008 0.068" size="0.009 0.004 0.016"/>
                                         <site name="Tch_thmetacarpal" class="D_Touch" pos="0.006 -0.008 0.042" quat="0.959662 0 0.281157 0"
                                                 size="0.008 0.004 0.015"/>
                                         <site name="Tch_palm" class="D_Touch" pos="-0.017 -0.008 0.024" quat="0.877583 0 -0.479426 0"
-                                                size="0.012 0.004 0.016"/>
+                                                size="0.012 0.004 0.016"/> -->
 
                                         <body name="R_thumb_proximal_base" pos="0.401367 0.488636 0.73173" quat="0.990013 1.83152e-06 -0.140974 2.57024e-07">
                                                 <inertial pos="-0.0048772 -0.010163 0.00044069" quat="0.075637 0.631378 -0.107678 0.764229" mass="0.0018869" diaginertia="8.66028e-08 6.87321e-08 4.94192e-08" />
@@ -228,22 +228,22 @@
 
         <actuator>
                 <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.8 0.8"
-                        gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTx" name="A_ARTx"
+                        gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARTx" name="A_ARTx"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
                 <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.8 0.8"
-                        gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTy" name="A_ARTy"
+                        gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARTy" name="A_ARTy"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
                 <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.8 0.8"
-                        gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTz" name="A_ARTz"
+                        gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARTz" name="A_ARTz"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
 
                 <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 1.75"
-                        gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRx" name="A_ARRx"
+                        gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARRx" name="A_ARRx"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
                 <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 1.75"
-                        gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRy" name="A_ARRy"
+                        gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARRy" name="A_ARRy"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
-                <general biasprm="0 -100 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 1.75"
+                <general biasprm="0 -150 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 1.75"
                         gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARRz" name="A_ARRz"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
 
