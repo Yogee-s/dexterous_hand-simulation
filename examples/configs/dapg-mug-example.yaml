@@ -24,8 +24,8 @@ USE_DAPG: true
 # USE_INVDYN_OFPG: true
 
 SAVE_FREQ: 50
-CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model/test_800.pickle"
-# CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_v2_baseline_reset/baseline_100.pickle"
+CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_base_policy_handmovingaway/policy_300.pickle"
+CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_base_policy_handmovingaway/baseline_300.pickle"
 ######################################
 
 
