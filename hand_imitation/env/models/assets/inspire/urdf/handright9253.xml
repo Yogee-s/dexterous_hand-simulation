@@ -43,13 +43,13 @@
                                 armature="0.001" frictionloss="0.001"/>
                         <joint name="ARTy" pos="0.42 0.4 0.75" axis="0 0 1" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARTz" pos="0.42 0.4 0.75" axis="0 1 0" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01" 
+                        <joint name="ARTz" pos="0.42 0.4 0.75" axis="0 1 0" type="slide" range="-1.75 1.75" damping="20" limited="true" margin="0.01" 
                                 armature="0.001" frictionloss="0.001"/> 
-                        <joint name="ARRx" pos="0.42 0.42 0.75" axis="-1 0 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARRx" pos="0.42 0.42 0.75" axis="-1 0 0" range="-2.75 2.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARRy" pos="0.42 0.42 0.75" axis="0 0 1" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARRy" pos="0.42 0.42 0.75" axis="0 0 1" range="-2.75 2.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARRz" pos="0.42 0.42 0.75" axis="0 1 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARRz" pos="0.42 0.42 0.75" axis="0 1 0" range="-2.75 2.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/> 
 
                         <geom name="C_hand" class="DC_Hand"  pos="0.5 0.5 0.5" quat="0.707107 -0.707107 0 0" type="mesh" rgba="1 1 1 1" mesh="R_hand_base_link" />
@@ -211,24 +211,24 @@
 
 
         <actuator>
-                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.8 0.8"
+                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75"
                         gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTx" name="A_ARTx"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
-                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.8 0.8"
+                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75"
                         gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTy" name="A_ARTy"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
-                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.8 0.8"
+                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 1.75"
                         gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTz" name="A_ARTz"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
 
-                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-2.75 2.75"
-                        gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARRx" name="A_ARRx"
+                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 2.75"
+                        gainprm="60 0 0 0 0 0 0 0 0 0" joint="ARRx" name="A_ARRx"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
                 <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 1.75"
                         gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRy" name="A_ARRy"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
-                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 7"
-                        gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARRz" name="A_ARRz"
+                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-3 3"
+                        gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRz" name="A_ARRz"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
 
 
