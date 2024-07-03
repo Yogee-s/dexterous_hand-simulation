@@ -39,7 +39,7 @@
         
         <worldbody>
                 <body name="forearm" pos="0 -0.7 0.2" quat="0.000563312 -0.000562864 0.706825 0.707388">
-                        <inertial pos="-0.5 -0.8 0.9" quat="0.982037 -0.0160006 0 -0.188007" mass="0.05" diaginertia="0.01 0.01 0.0075"/>
+                        <inertial pos="-0.5 -0.8 0.9" quat="0.982037 -0.0160006 0 -0.188007" mass="3" diaginertia="0.01 0.01 0.0075"/>
                         <joint name="ARTx" pos="0 0 0" axis="1 0 0" type="slide" range="-0.25 0.25" damping="20" limited="true"
                                 margin="0.01" armature="0.001" frictionloss="0.001"/>
                         <joint name="ARTy" pos="0 0 0" axis="0 1 0" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
@@ -56,7 +56,7 @@
                         <geom name="C_forearm1" class="DC_Hand" size="0.08 0.053" pos="0 0 0.29" type="capsule" rgba="0.4 0.5 0.6 0.1"/>
 
                         <body name="wrist" pos="0 0 0.396">
-                                <inertial pos="0.003 0 0.016" quat="0.504234 0.49623 0.49523 0.504234" mass="0.01"
+                                <inertial pos="0.003 0 0.016" quat="0.504234 0.49623 0.49523 0.504234" mass="0.3"
                                         diaginertia="0.001 0.001 0.001"/>
 
                                 <geom name="V_wrist" class="D_Vizual" mesh="wrist"/>
@@ -64,7 +64,7 @@
                                         rgba="0.4 0.5 0.6 0.1"/>
 
                                 <body name="hand" pos="0.425 -0.75 -0.4" quat="0.000563312 -0.000562864 0.706825 0.707388">  
-                                        <inertial pos="0 0 0" quat="0.982037 -0.0160006 0 -0.188007" mass="0.5" diaginertia="0.01 0.01 0.0075"/>
+                                        <inertial pos="0 0 0" quat="0.982037 -0.0160006 0 -0.188007" mass="0.3" diaginertia="0.01 0.01 0.0075"/>
 
                                         <geom name="C_hand" class="DC_Hand"  pos="0.5 0.5 0.5" quat="0.707107 -0.707107 0 0" type="mesh" rgba="1 1 1 1" mesh="R_hand_base_link" />
                                         <geom name="V_hand" class="D_Vizual" pos="0.5 0.5 0.5" quat="0.707107 -0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="R_hand_base_link" />
