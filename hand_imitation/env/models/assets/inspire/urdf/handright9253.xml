@@ -1,6 +1,6 @@
 <mujoco model="inspire_hand_r">
         <compiler angle="radian" />
-        <option integrator="RK4" timestep= "0.001"/> 
+        <option integrator="RK4" timestep= "0.001" /> 
         <!-- <option apirate="200" iterations="20" noslip_iterations="20" cone="elliptic" solver="PGS"/>      -->
         <size njmax="2000" nconmax="500" nstack="600000"/>
         <!-- <size njmax="2000" nconmax="500" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1" nuser_tendon="1"
@@ -18,6 +18,7 @@
                         <geom type="mesh" conaffinity="1" group="1" friction="1 0.5 0.01" margin="0.0001"/>
                 </default>
         </default>
+
 
         <asset>
                 <mesh name="R_hand_base_link" file="../meshes/R_hand_base_link.STL" />
@@ -37,19 +38,20 @@
         
         <worldbody>
                 <body name="hand" pos="-0.47 -0.75 -0.5" >
-                        <inertial pos="0 0 0" quat="0.982037 -0.0160006 0 -0.188007" mass="4" diaginertia="0.01 0.01 0.0075"/>
-                        <joint name="ARTx" pos="0.9 0 0" axis="-1 0 0" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01" 
+                        <inertial pos="0.42 0.5 0.75" quat="0.982037 -0.0160006 0 -0.188007" mass="2" diaginertia="0.01 0.01 0.0075"/>
+                        <joint name="ARTx" pos="0.42 0.4 0.75" axis="-1 0 0" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01" 
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARTy" pos="0 0 0" axis="0 0 1" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARTy" pos="0.42 0.4 0.75" axis="0 0 1" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARTz" pos="0 0 0" axis="0 1 0" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01" 
+                        <joint name="ARTz" pos="0.42 0.4 0.75" axis="0 1 0" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01" 
                                 armature="0.001" frictionloss="0.001"/> 
-                        <joint name="ARRx" pos="0 0 0" axis="-1 0 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARRx" pos="0.42 0.42 0.75" axis="-1 0 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARRy" pos="0 0 0" axis="0 0 1" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARRy" pos="0.42 0.42 0.75" axis="0 0 1" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARRz" pos="0 0 0" axis="0 1 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARRz" pos="0.42 0.42 0.75" axis="0 1 0" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/> 
+
                         <geom name="C_hand" class="DC_Hand"  pos="0.5 0.5 0.5" quat="0.707107 -0.707107 0 0" type="mesh" rgba="1 1 1 1" mesh="R_hand_base_link" />
                         <geom name="V_hand" class="D_Vizual" pos="0.5 0.5 0.5" quat="0.707107 -0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="R_hand_base_link" />
 
@@ -219,14 +221,14 @@
                         gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTz" name="A_ARTz"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
 
-                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 1.75"
-                        gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRx" name="A_ARRx"
+                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-2.75 2.75"
+                        gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARRx" name="A_ARRx"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
                 <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 1.75"
                         gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRy" name="A_ARRy"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
-                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-1.75 1.75"
-                        gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARRz" name="A_ARRz"
+                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="0 7"
+                        gainprm="80 0 0 0 0 0 0 0 0 0" joint="ARRz" name="A_ARRz"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
 
 
@@ -288,11 +290,7 @@
                 <touch site="Tch_ring_botom" name="ST_Tch_ring_botom"/>
                 <touch site="Tch_pinky_botom" name="ST_Tch_pinky_botom"/>
                 <touch site="Tch_thumb_bottom" name="ST_Tch_thumb_bottom"/>
-                <!-- <touch site="Tch_ffmetacarpal" name="ST_Tch_ffmetacarpal"/>
-                <touch site="Tch_mfmetacarpal" name="ST_Tch_mfmetacarpal"/>
-                <touch site="Tch_rfmetacarpal" name="ST_Tch_rfmetacarpal"/>
-                <touch site="Tch_thmetacarpal" name="ST_Tch_thmetacarpal"/>
-                <touch site="Tch_palm" name="ST_Tch_palm"/> -->
+
 
                 <jointpos joint="R_index_MCP_joint"  name="Sjp_index"/>
                 <jointpos joint="R_index_DIP_joint"  name="Sjp_index_tip"/>
