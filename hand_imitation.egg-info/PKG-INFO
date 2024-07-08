@@ -1,9 +1,10 @@
-Metadata-Version: 2.1
+Metadata-Version: 1.0
 Name: hand-imitation
 Version: 0.1.0
 Summary: environments simulated in MuJoCo
 Home-page: https://github.com/yzqin/hand_imitation.git
 Author: Xiaolong Wang's Lab
-License-File: LICENSE
-
-TBD
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: TBD
+Platform: UNKNOWN

@@ -49,7 +49,10 @@ def main(env_name, object_name):
         T = 100
     
 
-    if "best" in env_name:
+    if "best_policy" in env_name:
+        policy = f"{env_name}.pickle"
+
+    elif "best" in env_name:
         policy = f"../trained_model/{env_name}.pickle"
 
     elif "test" in env_name:

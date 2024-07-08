@@ -2,6 +2,9 @@ import os
 import sys
 from setuptools import setup, find_packages
 
+# Add the directory to sys.path
+sys.path.append('/home/xiaoyu/Desktop/yogee/dexmv-sim/hand_imitation')
+
 if sys.version_info.major != 3:
     print("This Python is only compatible with Python 3, but you are running "
           "Python {}. The installation will likely fail.".format(sys.version_info.major))

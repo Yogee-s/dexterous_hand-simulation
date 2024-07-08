@@ -41,15 +41,15 @@
                         <inertial pos="0.42 0.5 0.75" quat="0.982037 -0.0160006 0 -0.188007" mass="2" diaginertia="0.01 0.01 0.0075"/>
                         <joint name="ARTx" pos="0.82 0.4 0.75" axis="-1 0 0" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01" 
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARTy" pos="0.42 0.4 0.75" axis="0 0 1" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARTy" pos="0.42 0.4 0.75" axis="0 0 1" type="slide" range="-0.75 0.4" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARTz" pos="0.42 0.4 0.75" axis="0 1 0" type="slide" range="-1.75 1.75" damping="20" limited="true" margin="0.01" 
+                        <joint name="ARTz" pos="0.42 0.4 0.75" axis="0 1 0" type="slide" range="-0.3 1.5" damping="20" limited="true" margin="0.01" 
                                 armature="0.001" frictionloss="0.001"/> 
-                        <joint name="ARRx" pos="0.42 0.42 0.75" axis="-1 0 0" range="-2.75 2.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARRx" pos="0.42 0.42 0.75" axis="-1 0 0" range="-1.5 1.5" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARRy" pos="0.42 0.42 0.75" axis="0 0 1" range="-2.75 2.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARRy" pos="0.42 0.42 0.75" axis="0 0 1" range="-1.2 1.2" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/>
-                        <joint name="ARRz" pos="0.42 0.42 0.75" axis="0 1 0" range="-2.75 2.75" damping="20" limited="true" margin="0.01"
+                        <joint name="ARRz" pos="0.42 0.42 0.75" axis="0 1 0" range="-3 3" damping="20" limited="true" margin="0.01"
                                 armature="0.001" frictionloss="0.001"/> 
 
                         <geom name="C_hand" class="DC_Hand"  pos="0.5 0.5 0.5" quat="0.707107 -0.707107 0 0" type="mesh" rgba="1 1 1 1" mesh="R_hand_base_link" />
@@ -214,10 +214,10 @@
                 <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.75"
                         gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTx" name="A_ARTx"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
-                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.4 0.75"
+                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 0.4"
                         gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTy" name="A_ARTy"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
-                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.75 1.75"
+                <general biasprm="0 -200 0 0 0 0 0 0 0 0" biastype="affine" ctrllimited="true" ctrlrange="-0.3 1.5"
                         gainprm="50 0 0 0 0 0 0 0 0 0" joint="ARTz" name="A_ARTz"
                         user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
 
