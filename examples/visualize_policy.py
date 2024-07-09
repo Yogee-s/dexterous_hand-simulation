@@ -49,13 +49,11 @@ def main(env_name, object_name):
         T = 100
     
 
-    if "best_policy" in env_name:
-        policy = f"{env_name}.pickle"
 
-    elif "best" in env_name:
-        policy = f"../trained_model/{env_name}.pickle"
+    if "policy" in env_name:
+        policy = f"training_log/dapg_relocate-mug-0.8_relocate-mug_0.1_100_trpo_seed200/iterations/{env_name}.pickle"
 
-    elif "test" in env_name:
+    elif ("best" or "test") in env_name:
         policy = f"../trained_model/{env_name}.pickle"
 
     elif env_name == "relocate":
