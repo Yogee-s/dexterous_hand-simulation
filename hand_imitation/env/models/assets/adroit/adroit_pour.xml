@@ -65,14 +65,14 @@
           <geom name="C_palm1" class="DC_Hand" size="0.011 0.0111 0.025" pos="-0.032 0 0.014" type="box"
                 rgba="0.4 0.5 0.6 0.1"/>
           <site name="S_grasp" pos="0.007 -0.05 0.07" quat="0.00863043 -0.595202 -0.00337281 -0.803523" size="0.01"
-                rgba="0 0 0 0"/>
-          <site name="Tch_ffmetacarpal" class="D_Touch" pos="0.033 -0.008 0.078" size="0.009 0.004 0.006"/>
-          <site name="Tch_mfmetacarpal" class="D_Touch" pos="0.011 -0.008 0.074" size="0.009 0.004 0.014"/>
-          <site name="Tch_rfmetacarpal" class="D_Touch" pos="-0.011 -0.008 0.068" size="0.009 0.004 0.016"/>
+                rgba="1 1 0 1"/>
+          <site name="Tch_ffmetacarpal" class="D_Touch" pos="0.033 -0.008 0.078" size="0.009 0.004 0.006" rgba="1 1 0 1"/>
+          <site name="Tch_mfmetacarpal" class="D_Touch" pos="0.011 -0.008 0.074" size="0.009 0.004 0.014" rgba="1 1 0 1"/>
+          <site name="Tch_rfmetacarpal" class="D_Touch" pos="-0.011 -0.008 0.068" size="0.009 0.004 0.016" rgba="1 1 0 1"/>
           <site name="Tch_thmetacarpal" class="D_Touch" pos="0.006 -0.008 0.042" quat="0.959662 0 0.281157 0"
-                size="0.008 0.004 0.015"/>
+                size="0.008 0.004 0.015" rgba="1 1 0 1"/>
           <site name="Tch_palm" class="D_Touch" pos="-0.017 -0.008 0.024" quat="0.877583 0 -0.479426 0"
-                size="0.012 0.004 0.016"/>
+                size="0.012 0.004 0.016" rgba="1 1 0 1"/>
           <body name="ffknuckle" pos="0.033 0 0.095">
             <inertial pos="0 0 0" quat="0.520062 0.854102 0.00600072 -0.00300036" mass="0.008"
                       diaginertia="1e-05 1e-05 1e-05"/>
@@ -86,14 +86,14 @@
                      armature="0.001" damping="0.05" frictionloss="0.001"/>
               <geom name="V_ffproximal" class="D_Vizual" mesh="F3"/>
               <geom name="C_ffproximal" class="DC_Hand" size="0.01 0.0225" pos="0 0 0.0225" type="capsule"/>
-              <site name="Tch_ffproximal" class="D_Touch" pos="0 -0.007 0.022" size="0.009 0.004 0.012"/>
+              <site name="Tch_ffproximal" class="D_Touch" pos="0 -0.007 0.022" size="0.009 0.004 0.012" rgba="1 0 0 1"/>
               <body name="ffmiddle" pos="0 0 0.045">
                 <inertial pos="0 0 0.011" quat="0.707107 0 0 0.707107" mass="0.012" diaginertia="1e-05 1e-05 1e-05"/>
                 <joint name="FFJ1" pos="0 0 0" axis="1 0 0" range="0 1.571" user="1101" limited="true" margin="0.01"
                        armature="0.001" damping="0.05" frictionloss="0.001"/>
                 <geom name="V_ffmiddle" class="D_Vizual" mesh="F2"/>
                 <geom name="C_ffmiddle" class="DC_Hand" size="0.00805 0.0125" pos="0 0 0.0125" type="capsule"/>
-                <site name="Tch_ffmiddle" class="D_Touch" pos="0 -0.007 0.013" size="0.009 0.002 0.007"/>
+                <site name="Tch_ffmiddle" class="D_Touch" pos="0 -0.007 0.013" size="0.009 0.002 0.007" rgba="1 0 0 1"/>
                 <body name="ffdistal" pos="0 0 0.025">
                   <inertial pos="0 0 0.015" quat="0.7071 -0.00300043 0.00300043 0.7071" mass="0.01"
                             diaginertia="1e-05 1e-05 1e-05"/>
@@ -103,7 +103,7 @@
                   <geom name="C_ffdistal" class="DC_Hand" size="0.00705 0.012" pos="0 0 0.012" type="capsule"
                         condim="4"/>
                   <site name="S_fftip" pos="0 0 0.026" group="3" size="0.005 0 0" rgba="0.4 0.9 0.4 1"/>
-                  <site name="Tch_fftip" class="D_Touch" pos="0 -0.004 0.018"/>
+                  <site name="Tch_fftip" class="D_Touch" pos="0 -0.004 0.018" rgba="1 0 0 1"/>
                 </body>
               </body>
             </body>

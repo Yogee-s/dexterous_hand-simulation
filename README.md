@@ -1,5 +1,34 @@
 # DexMV: Imitation Learning for Dexterous Manipulation from Human Videos
 
+## Changes made by Yogee-s
+
+### Setting up of Environment
+Make sure Mujoco is of version 2.0!
+```bash
+# Follow the DexMV to build the environment, but if you encounter any issues can create environment using this
+conda env create -f dexmv_environment.yml 
+conda activate dexmv
+```
+
+### Files added
+- test_ipynb
+- test_visualise_debug.py
+- train_visualise_debug.py
+- handright9253.xml
+
+### Scripts modified
+#### DexMv-Sim
+- `YCBRelocate` : 
+
+- `examples/visualize_policy.py` : 
+#### DexMv-Learn
+- `dexmv-learn/mjrl/mjrl/algos/dapg.py`
+- `dexmv-learn/mjrl/mjrl/algos/behaviour_cloning.py`
+- `dexmv-learn/mjrl/mjrl/policies/gaussian_mlp.py`
+
+
+<hr/>
+
 [[Project Page]](https://yzqin.github.io/dexmv/) [[Paper]](https://arxiv.org/abs/2108.05877) [[Demonstration Files]](https://drive.google.com/file/d/1v-SezFDQBcgekHZBlqulqa8rIgn0iwRT/view?usp=sharing)[[Raw Data(subset)]](https://drive.google.com/file/d/1k9dqlUyr_iL9bBp0WpK8fKK4DToWl_AC/view?usp=sharing)
 -----
 

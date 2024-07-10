@@ -17,15 +17,15 @@ NUM_CPU: 10
 
 #New configurations
 #####################################
-NUM_ITER: 2000
+NUM_ITER: 3000
 # BC_INIT: true
 USE_DAPG: true
 # DEMO_FILE: ../demonstrations_retargeted/relocate-mustard_bottle.pkl
 # USE_INVDYN_OFPG: true
 
 SAVE_FREQ: 100
-CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_working_kindof/policy_200.pickle"
-CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_working_kindof/baseline_200.pickle"
+# CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_working_kindof/policy_200.pickle"
+# CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_working_kindof/baseline_200.pickle"
 ######################################
 
 
