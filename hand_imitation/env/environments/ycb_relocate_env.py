@@ -81,6 +81,9 @@ class YCBRelocate(MujocoEnv):
         data = (data / 255).astype(np.float32)
         return data
 
+    #############################################################################################
+    #############################################################################################
+    #############################################################################################
     def reward(self, action):
         obj_pos = self.data.body_xpos[self.obj_bid].ravel()
         palm_pos = self.data.site_xpos[self.S_grasp_sid].ravel()
@@ -102,6 +105,40 @@ class YCBRelocate(MujocoEnv):
                     reward += 1 / (obj_target_distance + 0.01)
 
         return reward
+    #############################################################################################
+    #############################################################################################
+    #############################################################################################
+
+
+    # def reward(self, action):
+    #     obj_pos = self.data.body_xpos[self.obj_bid].ravel()
+    #     palm_pos = self.data.site_xpos[self.S_grasp_sid].ravel()
+    #     target_pos = self.data.body_xpos[self.target_object_bid].ravel()
+    #     is_contact = self.check_contact(self.body_geom_names, self.robot_geom_names)
+    #     obj_orientation = self.data.body_xquat[self.obj_bid].ravel()
+
+    #     # Mustard bottle upright orientation
+    #     upright_orientation = np.array([0.5, 0, 0, 0.866])
+    #     orientation_deviation = np.linalg.norm(upright_orientation - obj_orientation)
+    #     orientation_penalty = 5.0 * orientation_deviation  # Adjust the weight as needed
+
+    #     reward = -0.1 * np.linalg.norm(palm_pos - obj_pos)  # take hand to object
+    #     reward -= orientation_penalty  # Add penalty for object orientation deviation
+
+    #     if is_contact:
+    #         reward += 0.1
+    #         lift = max(min(obj_pos[2], target_pos[2]) - YCB_SIZE[self.object_name][2] / 2.0, 0)
+    #         reward += 50 * lift
+    #         if lift > 0.015:  # if object off the table
+    #             obj_target_distance = np.linalg.norm(obj_pos - target_pos)
+    #             reward += 2.0  # bonus for lifting the object
+    #             reward += -0.5 * np.linalg.norm(palm_pos - target_pos)  # make hand go to target
+    #             reward += -1.5 * obj_target_distance  # make object go to target
+
+    #             if obj_target_distance < 0.1:
+    #                 reward += 1 / (obj_target_distance + 0.01)
+
+    #     return reward
 
     def _setup_references(self):
         self.target_object_bid = self.sim.model.body_name2id("target")

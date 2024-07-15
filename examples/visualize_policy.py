@@ -50,10 +50,11 @@ def main(env_name, object_name):
     
 
 
-    if "policy" in env_name:
-        policy = f"training_log/dapg_relocate-mug-0.8_relocate-mug_0.1_100_trpo_seed200/iterations/{env_name}.pickle"
+    if "iterations" in env_name:
+        # policy = f"training_log/dapg_relocate-mug-0.8_relocate-mug_0.1_100_trpo_seed200/iterations/{env_name}.pickle"
+        policy = f"training_log/dapg_relocate-mustard_bottle-0.8_relocate-mustard_bottle_0.1_100_trpo_seed200/{env_name}.pickle"
 
-    elif ("best" or "test") in env_name:
+    elif "test" in env_name:
         policy = f"../trained_model/{env_name}.pickle"
 
     elif env_name == "relocate":
