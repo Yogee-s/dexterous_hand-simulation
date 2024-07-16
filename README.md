@@ -176,6 +176,7 @@ cd dexmv-sim
 
 # The provoided package version in the yml is our testing environment, you do not need to follow the version of each python package precisely to run this code.
 conda env update -f environment.yml 
+#pip install torch and yacs if needed
 conda activate dexmv
 pip install -e .
 
