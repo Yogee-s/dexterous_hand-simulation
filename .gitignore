@@ -14,7 +14,6 @@ imgui.ini
 .DS_Store
 /.idea
 /log
-hand_imitation/env/models/assets/inspire/meshes
 demonstrations/
 examples/relocate_temp.xml
 examples/training_log
