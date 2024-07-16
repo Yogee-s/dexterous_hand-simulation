@@ -115,12 +115,20 @@ class YCBRelocate(MujocoEnv):
     #     palm_pos = self.data.site_xpos[self.S_grasp_sid].ravel()
     #     target_pos = self.data.body_xpos[self.target_object_bid].ravel()
     #     is_contact = self.check_contact(self.body_geom_names, self.robot_geom_names)
-    #     obj_orientation = self.data.body_xquat[self.obj_bid].ravel()
 
-    #     # Mustard bottle upright orientation
+    #     # Mustard bottle upright orientation (quaternion for no rotation around Z-axis)
     #     upright_orientation = np.array([0.5, 0, 0, 0.866])
-    #     orientation_deviation = np.linalg.norm(upright_orientation - obj_orientation)
-    #     orientation_penalty = 5.0 * orientation_deviation  # Adjust the weight as needed
+    #     obj_orientation = self.data.body_xquat[self.obj_bid].ravel()
+        
+    #     # Compute the cosine of the angle between the quaternions
+    #     cos_theta = np.dot(upright_orientation, obj_orientation)
+    #     # Ensure the value is within the valid range for arccos to avoid numerical issues
+    #     cos_theta = np.clip(cos_theta, -1.0, 1.0)
+    #     # Calculate the angular distance
+    #     angular_distance = np.arccos(cos_theta) * 2
+        
+    #     # Penalize based on the angular distance
+    #     orientation_penalty = 0.01 * angular_distance  # Adjust the weight as needed
 
     #     reward = -0.1 * np.linalg.norm(palm_pos - obj_pos)  # take hand to object
     #     reward -= orientation_penalty  # Add penalty for object orientation deviation

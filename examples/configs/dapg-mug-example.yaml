@@ -20,8 +20,10 @@ NUM_ITER: 2000
 # BC_INIT: true
 USE_DAPG: true
 # DEMO_FILE: ../demonstrations/relocate-mustard_bottle.pkl
-# DEMO_FILE: ../demonstrations_retargeted/relocate-mustard_bottle.pkl
-# USE_INVDYN_OFPG: true
+# ENV_NAME: relocate-mustard_bottle-0.8
+
+# DEMO_FILE: ../demonstrations/relocate-tomato_soup_can.pkl
+# ENV_NAME: relocate-tomato_soup_can-0.8
 
 SAVE_FREQ: 50
 # CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_mustard_version2/policy_600.pickle"
@@ -29,6 +31,8 @@ SAVE_FREQ: 50
 ######################################
 
 
+# DEMO_FILE: ../demonstrations_retargeted/relocate-mustard_bottle.pkl
+# USE_INVDYN_OFPG: true
 
 
 # Using Custom fingers
