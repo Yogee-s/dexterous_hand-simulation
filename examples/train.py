@@ -31,7 +31,7 @@ print("TensorFlow version:", tf.__version__)
 ##############################################
 
 class Spec:
-    def __init__(self, env=None, env_name="relocate-mug-1"):
+    def __init__(self, env=None, env_name="relocate-mustard_bottle-0.8"):
         self.observation_dim = env.reset().shape[0]
         self.action_dim = env.action_spec[0].shape[0]
         self.env_id = env_name
