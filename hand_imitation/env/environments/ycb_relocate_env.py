@@ -84,83 +84,83 @@ class YCBRelocate(MujocoEnv):
     ###############################################################################################
     #-------------------------------------ORIGINAL------------------------------------------------#
     ###############################################################################################
-    # def reward(self, action):
-    #     obj_pos = self.data.body_xpos[self.obj_bid].ravel()
-    #     palm_pos = self.data.site_xpos[self.S_grasp_sid].ravel()
-    #     target_pos = self.data.body_xpos[self.target_object_bid].ravel()
-    #     is_contact = self.check_contact(self.body_geom_names, self.robot_geom_names)
+    def reward(self, action):
+        obj_pos = self.data.body_xpos[self.obj_bid].ravel()
+        palm_pos = self.data.site_xpos[self.S_grasp_sid].ravel()
+        target_pos = self.data.body_xpos[self.target_object_bid].ravel()
+        is_contact = self.check_contact(self.body_geom_names, self.robot_geom_names)
 
-    #     reward = -0.1 * np.linalg.norm(palm_pos - obj_pos)  # take hand to object
-    # #############################################################################################
+        reward = -0.1 * np.linalg.norm(palm_pos - obj_pos)  # take hand to object
+    #############################################################################################
     #---------------------------Make hand go more middle of mug-----------------------------------#
-    # #############################################################################################
-    # #     reward = -0.15 * np.linalg.norm(palm_pos - obj_pos)  # take hand to object
-    # #############################################################################################
-    #     if is_contact:
-    #         reward += 0.1
-    #         lift = max(min(obj_pos[2], target_pos[2]) - YCB_SIZE[self.object_name][2] / 2.0, 0)
-    #         reward += 50 * lift
-    #         if lift > 0.015:  # if object off the table
-    #             obj_target_distance = np.linalg.norm(obj_pos - target_pos)
-    #             reward += 2.0  # bonus for lifting the object
-    #             reward += -0.5 * np.linalg.norm(palm_pos - target_pos)  # make hand go to target
-    #             reward += -1.5 * obj_target_distance  # make object go to target
+    #############################################################################################
+    #     reward = -0.15 * np.linalg.norm(palm_pos - obj_pos)  # take hand to object
+    #############################################################################################
+        if is_contact:
+            reward += 0.1
+            lift = max(min(obj_pos[2], target_pos[2]) - YCB_SIZE[self.object_name][2] / 2.0, 0)
+            reward += 50 * lift
+            if lift > 0.015:  # if object off the table
+                obj_target_distance = np.linalg.norm(obj_pos - target_pos)
+                reward += 2.0  # bonus for lifting the object
+                reward += -0.5 * np.linalg.norm(palm_pos - target_pos)  # make hand go to target
+                reward += -1.5 * obj_target_distance  # make object go to target
 
-    #             if obj_target_distance < 0.1:
-    #                 reward += 1 / (obj_target_distance + 0.01)
+                if obj_target_distance < 0.1:
+                    reward += 1 / (obj_target_distance + 0.01)
 
-    #     return reward
+        return reward
     #############################################################################################
     #############################################################################################
     #----------------------Attempted to penalise object knocking over---------------------------#
     #############################################################################################
     #############################################################################################
-    def reward(self, action):
-        obj_pos = self.data.body_xpos[self.obj_bid].ravel()
-        obj_quat = self.data.body_xquat[self.obj_bid].ravel()
-        obj_rot = transforms3d.quaternions.quat2mat(obj_quat)
-        palm_pos = self.data.site_xpos[self.S_grasp_sid].ravel()
-        target_pos = self.data.body_xpos[self.target_object_bid].ravel()
-        is_contact = self.check_contact(self.body_geom_names, self.robot_geom_names)
+    # def reward(self, action):
+    #     obj_pos = self.data.body_xpos[self.obj_bid].ravel()
+    #     obj_quat = self.data.body_xquat[self.obj_bid].ravel()
+    #     obj_rot = transforms3d.quaternions.quat2mat(obj_quat)
+    #     palm_pos = self.data.site_xpos[self.S_grasp_sid].ravel()
+    #     target_pos = self.data.body_xpos[self.target_object_bid].ravel()
+    #     is_contact = self.check_contact(self.body_geom_names, self.robot_geom_names)
         
-        # Calculate the vertical angle of the object
-        vertical_angle = np.arccos(obj_rot[2, 1])
+    #     # Calculate the vertical angle of the object
+    #     vertical_angle = np.arccos(obj_rot[2, 1])
         
-        # Reward for moving hand closer to object
-        reward = -0.1 * np.linalg.norm(palm_pos - obj_pos)
+    #     # Reward for moving hand closer to object
+    #     reward = -0.1 * np.linalg.norm(palm_pos - obj_pos)
         
-        if is_contact:
-            # Calculate lift
-            lift = max(obj_pos[2] - YCB_SIZE[self.object_name][2] / 2.0, 0)
-            reward += 50 * lift  # Reward for lifting
+    #     if is_contact:
+    #         # Calculate lift
+    #         lift = max(obj_pos[2] - YCB_SIZE[self.object_name][2] / 2.0, 0)
+    #         reward += 50 * lift  # Reward for lifting
             
-            # If the object is lifted, reward for proximity to target
-            if lift > 0.015:
-                obj_target_distance = np.linalg.norm(obj_pos - target_pos)
-                reward += 2.0  # Bonus for lifting
-                reward += -0.5 * np.linalg.norm(palm_pos - target_pos)  # Penalty for moving hand away from target
-                reward += -1.5 * obj_target_distance  # Penalty for moving object away from target
+    #         # If the object is lifted, reward for proximity to target
+    #         if lift > 0.015:
+    #             obj_target_distance = np.linalg.norm(obj_pos - target_pos)
+    #             reward += 2.0  # Bonus for lifting
+    #             reward += -0.5 * np.linalg.norm(palm_pos - target_pos)  # Penalty for moving hand away from target
+    #             reward += -1.5 * obj_target_distance  # Penalty for moving object away from target
 
-                if obj_target_distance < 0.1:
-                    reward += 1 / (obj_target_distance + 0.01)  # Higher reward for closer proximity
+    #             if obj_target_distance < 0.1:
+    #                 reward += 1 / (obj_target_distance + 0.01)  # Higher reward for closer proximity
 
-            # Penalty for not being upright
-            upright_penalty = 1 - np.exp(-vertical_angle**2 * 5)  # Stronger penalty for larger deviations
-            reward -= upright_penalty
+    #         # Penalty for not being upright
+    #         upright_penalty = 1 - np.exp(-vertical_angle**2 * 5)  # Stronger penalty for larger deviations
+    #         reward -= upright_penalty
 
-        # Bonus for being close to the target and upright
-        obj_target_distance = np.linalg.norm(obj_pos - target_pos)
-        if obj_target_distance < 0.03 and vertical_angle < np.deg2rad(45):
-            reward += (0.5 - obj_target_distance) * 10  # Reward for proximity to target
-            if lift > 0.015:
-                reward += (0.5 - vertical_angle / np.pi) * 10  # Reward for better orientation if lifted
+    #     # Bonus for being close to the target and upright
+    #     obj_target_distance = np.linalg.norm(obj_pos - target_pos)
+    #     if obj_target_distance < 0.03 and vertical_angle < np.deg2rad(45):
+    #         reward += (0.5 - obj_target_distance) * 10  # Reward for proximity to target
+    #         if lift > 0.015:
+    #             reward += (0.5 - vertical_angle / np.pi) * 10  # Reward for better orientation if lifted
         
-        # Check if the object is toppled over
-        toppled_threshold = np.deg2rad(80)  # Threshold for considering the object toppled over
-        if vertical_angle > toppled_threshold:
-            reward -= 50  # Large penalty if the object is toppled over
+    #     # Check if the object is toppled over
+    #     toppled_threshold = np.deg2rad(80)  # Threshold for considering the object toppled over
+    #     if vertical_angle > toppled_threshold:
+    #         reward -= 50  # Large penalty if the object is toppled over
 
-        return reward
+    #     return reward
     #############################################################################################
     #############################################################################################
     def _setup_references(self):
