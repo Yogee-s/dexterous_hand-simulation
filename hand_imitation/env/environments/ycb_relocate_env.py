@@ -92,7 +92,7 @@ class YCBRelocate(MujocoEnv):
 
         reward = -0.1 * np.linalg.norm(palm_pos - obj_pos)  # take hand to object
     #############################################################################################
-    #---------------------------Make hand go more middle of mug-----------------------------------#
+    #---------------------------Make hand go centre of mug--------------------------------------#
     #############################################################################################
     #     reward = -0.15 * np.linalg.norm(palm_pos - obj_pos)  # take hand to object
     #############################################################################################
@@ -112,18 +112,18 @@ class YCBRelocate(MujocoEnv):
         return reward
     #############################################################################################
     #############################################################################################
-    #----------------------Attempted to penalise object knocking over---------------------------#
+    #----------------------Reward structure to penalise object knocking over--------------------#
     #############################################################################################
     #############################################################################################
     # def reward(self, action):
     #     obj_pos = self.data.body_xpos[self.obj_bid].ravel()
-    #     obj_quat = self.data.body_xquat[self.obj_bid].ravel()
-    #     obj_rot = transforms3d.quaternions.quat2mat(obj_quat)
     #     palm_pos = self.data.site_xpos[self.S_grasp_sid].ravel()
     #     target_pos = self.data.body_xpos[self.target_object_bid].ravel()
     #     is_contact = self.check_contact(self.body_geom_names, self.robot_geom_names)
-        
+
     #     # Calculate the vertical angle of the object
+    #     obj_quat = self.data.body_xquat[self.obj_bid].ravel()
+    #     obj_rot = transforms3d.quaternions.quat2mat(obj_quat)
     #     vertical_angle = np.arccos(obj_rot[2, 1])
         
     #     # Reward for moving hand closer to object
@@ -158,7 +158,7 @@ class YCBRelocate(MujocoEnv):
     #     # Check if the object is toppled over
     #     toppled_threshold = np.deg2rad(80)  # Threshold for considering the object toppled over
     #     if vertical_angle > toppled_threshold:
-    #         reward -= 50  # Large penalty if the object is toppled over
+    #         reward -= 10  # Large penalty if the object is toppled over
 
     #     return reward
     #############################################################################################

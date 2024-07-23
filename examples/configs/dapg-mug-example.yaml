@@ -22,11 +22,11 @@ USE_DAPG: true
 DEMO_FILE: ../demonstrations/relocate-mustard_bottle.pkl
 ENV_NAME: relocate-mustard_bottle-0.8
 DAPG_LAM0: 1.0
-DAPG_LAM1: 0.01
+DAPG_LAM1: 0.99
 # DEMO_FILE: ../demonstrations/relocate-tomato_soup_can.pkl
 # ENV_NAME: relocate-tomato_soup_can-0.8
 
-SAVE_FREQ: 50
+SAVE_FREQ: 20
 # CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_models_mug/trained_model_mug_working_wrong_ori/policy_1000.pickle"
 # CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_models_mug/trained_model_mug_working_wrong_ori/baseline_1000.pickle"
 ######################################

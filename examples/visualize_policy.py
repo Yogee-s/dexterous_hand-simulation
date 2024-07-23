@@ -51,7 +51,7 @@ def main(env_name, object_name):
 
 
     if "iterations" in env_name:
-        policy = f"training_log/dapg_relocate-mustard_bottle-0.8_relocate-mustard_bottle_0.8_100_trpo_seed200/{env_name}.pickle"
+        policy = f"training_log/dapg_relocate-mustard_bottle-0.8_relocate-mustard_bottle_1.0_100_trpo_seed200/{env_name}.pickle"
         # policy = f"training_log/dapg_relocate-mug-0.8_relocate-mug_0.1_100_trpo_seed200/{env_name}.pickle"
 
     elif "test" in env_name:
