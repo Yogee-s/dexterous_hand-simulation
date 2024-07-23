@@ -11,14 +11,14 @@ from hand_imitation.env.utils.random import np_random
 
 
 class YCBRelocate(MujocoEnv):
-    def __init__(self, has_renderer, render_gpu_device_id=0, object_name="mustard_bottle", object_scale=1, randomness_scale=1,
+    def __init__(self, has_renderer, render_gpu_device_id=0, object_name="mug", object_scale=1, randomness_scale=1,
                  use_visual_obs=False, **kwargs):
         self.np_random = None
         ##########################################################################################################
         ##########################################################################################################
         ##########################################################################################################
         # EDIT HERE TO CHANGE THE NUMBE OF ACTUATORS NEEDED
-        self.num_act = 18
+        self.num_act = 12
         # act_indexes = [0, 1, 2, 3, 4, 5, 9, 10, 13, 14, 17, 18, 22, 23, 25, 26, 28, 29]
         ##########################################################################################################
         ##########################################################################################################
