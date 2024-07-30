@@ -1,7 +1,5 @@
 # DexMV: Imitation Learning for Dexterous Manipulation from Human Videos
 
-Original README is here if needed: [Original_README.md](docs/Original_README.md)
-
 ## [[Project Page]](https://yzqin.github.io/dexmv/) [[Paper]](https://arxiv.org/abs/2108.05877) [[Demonstration Files]](https://drive.google.com/file/d/1v-SezFDQBcgekHZBlqulqa8rIgn0iwRT/view?usp=sharing)[[Raw Data(subset)]](https://drive.google.com/file/d/1k9dqlUyr_iL9bBp0WpK8fKK4DToWl_AC/view?usp=sharing)
 
 [DexMV: Imitation Learning for Dexterous Manipulation from Human Videos](https://yzqin.github.io/dexmv/), Yuzhe Qin*,
@@ -32,6 +30,8 @@ also provided if you want to try from scratch.
 ```
 
 ## Changes made by Yogee-s
+
+Original README is here if needed: [Original_README.md](docs/Original_README.md)
 
 # Setting up of Environment
 
@@ -69,10 +69,10 @@ pip install -e .
 
 ### Files added
 
-- `test_ipynb`: Jupyter notebook with useful commands
+- `test.ipynb`: Jupyter notebook with useful commands
 - `test_visualise_debug.py` : Debug script
 - `train_visualise_debug.py` : Debug script
-- `hand_imitation/env/models/assets/inspire`: Model file of Inspire hand (Converted and modified from URDF)
+- `hand_imitation/env/models/assets/inspire`: Model file of Inspire hand (Converted URDF to Mujoco XML)
 
 ### Scripts modified
 
@@ -80,17 +80,17 @@ pip install -e .
 
 - `YCBRelocate` : Modified number of actuators and alternate reward structures to be improved on.
 
-- `examples/visualize_policy.py` : Modified paths to visualize from different folders.
+- `examples/visualize_policy.py` : Modified paths to visualize trained models from different folders.
 
-- `examples/train.py` : Integrated Tensorboard summary writer for live update of graphs.
+- `examples/train.py` : Integrated Tensorboard summary writer for live update of graphs. Refer to test.ipynb to see command.
 
-- `examples/configs/dapg-mug-example.yaml` : Configured parameters for training
+- `examples/configs/dapg-mug-example.yaml` : Configured parameters for training.
 
 #### DexMv-Learn
 
-- `dexmv-learn/mjrl/mjrl/algos/dapg.py` : Sampling of demonstration data for training
-- `dexmv-learn/mjrl/mjrl/algos/behaviour_cloning.py`: Sampling of demonstration data for training
-- `dexmv-learn/mjrl/mjrl/policies/gaussian_mlp.py`: Sampling of demonstration data for training
+- `dexmv-learn/mjrl/mjrl/algos/dapg.py` : Integrated sampling of demonstration data for training
+- `dexmv-learn/mjrl/mjrl/algos/behaviour_cloning.py`: Integrated sampling of demonstration data for training
+- `dexmv-learn/mjrl/mjrl/policies/gaussian_mlp.py`: Integrated sampling of demonstration data for training
 
 <hr/>
 
@@ -121,13 +121,6 @@ You can also try different object_name: mug, sugar_box, large_clamp, mustard_bot
 
 If it does not work for you, please check the GitHub issues for more
 discussion: https://github.com/openai/mujoco-py/issues/268
-
-### Pour and Place Inside
-
-```
-python visualize_policy.py --env_name=pour # run this in the `example` directory
-python visualize_policy.py --env_name=place_inside
-```
 
 ### Troubleshooting
 
@@ -171,6 +164,13 @@ for training.
 ## Environment
 
 If you want to use our simulated environment for your own research, check the [env.md](docs/env.md)
+
+## TODO in the future
+
+- Work on training reallocation task for different objects (Start with mustard bottle)
+  - Modify reward structure to penalise orientation of object
+  - Work on making hand turn sideways before grabing
+- Work on training model to complete pour and place inside tasks
 
 ## Acknowledge
 
