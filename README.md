@@ -50,7 +50,7 @@ export DEXMV_PACKAGE_PATH=`pwd`
 cd dexmv-sim
 
 # The provoided package version in the yml is our testing environment, you do not need to follow the version of each python package precisely to run this code.
-conda env update -f environment.yml
+conda env update -f environment.yml # If there are issues, can try using dexmv_env.yml to update env instead
 #pip install torch and yacs if needed
 conda activate dexmv
 pip install -e .
