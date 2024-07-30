@@ -1,8 +1,7 @@
 # DexMV: Imitation Learning for Dexterous Manipulation from Human Videos
 
-Original README is here if needed: [Original_README.md](docs/Original_README.md)
-
-## [[Project Page]](https://yzqin.github.io/dexmv/) [[Paper]](https://arxiv.org/abs/2108.05877) [[Demonstration Files]](https://drive.google.com/file/d/1v-SezFDQBcgekHZBlqulqa8rIgn0iwRT/view?usp=sharing)[[Raw Data(subset)]](https://drive.google.com/file/d/1k9dqlUyr_iL9bBp0WpK8fKK4DToWl_AC/view?usp=sharing)
+[[Project Page]](https://yzqin.github.io/dexmv/) [[Paper]](https://arxiv.org/abs/2108.05877) [[Demonstration Files]](https://drive.google.com/file/d/1v-SezFDQBcgekHZBlqulqa8rIgn0iwRT/view?usp=sharing)[[Raw Data(subset)]](https://drive.google.com/file/d/1k9dqlUyr_iL9bBp0WpK8fKK4DToWl_AC/view?usp=sharing)
+-----
 
 [DexMV: Imitation Learning for Dexterous Manipulation from Human Videos](https://yzqin.github.io/dexmv/), Yuzhe Qin*,
 Yueh-Hua Wu*, Shaowei Liu, Hanwen Jiang, Ruihan Yang, Yang Fu, Xiaolong Wang, ECCV 2022.
@@ -23,7 +22,7 @@ also provided if you want to try from scratch.
 @misc{qin2021dexmv,
       title={DexMV: Imitation Learning for Dexterous Manipulation
       from Human Videos},
-      author={Qin, Yuzhe and Wu, Yueh-Hua and Liu, Shaowei and Jiang, Hanwen,
+      author={Qin, Yuzhe and Wu, Yueh-Hua and Liu, Shaowei and Jiang, Hanwen, 
       and Yang, Ruihan and Fu, Yang and Wang, Xiaolong},
       year={2021},
       archivePrefix={arXiv},
@@ -31,17 +30,14 @@ also provided if you want to try from scratch.
       }
 ```
 
-## Changes made by Yogee-s
+## Installation
 
-# Setting up of Environment
+1. Install the MuJoCo. It is recommended to use conda to manage python package:
 
-## Mujoco and Mujoco-py Installation Instructions
+Install MuJoCo from: http://www.mujoco.org/ and put your MuJoCo licence to your install directory. If you already have
+MuJoCo on your computer, please skip this step. Note that we use MuJoCo 2.0 for our experiments.
 
-Follow the instructions here to install mujoco: [mujoco_README.md](docs/mujoco_README.md)
-
-## DexMv-Sim and DexMv-Learn Installation Instructions
-
-Install Python dependencies Create a conda env with all the Python dependencies.
+2. Install Python dependencies Create a conda env with all the Python dependencies.
 
 ```bash
 # Download the code from this repo for the simulated environment, retargeting and examples
@@ -50,8 +46,7 @@ export DEXMV_PACKAGE_PATH=`pwd`
 cd dexmv-sim
 
 # The provoided package version in the yml is our testing environment, you do not need to follow the version of each python package precisely to run this code.
-conda env update -f environment.yml
-#pip install torch and yacs if needed
+conda env create -f environment.yml 
 conda activate dexmv
 pip install -e .
 
@@ -65,36 +60,7 @@ cd mjrl
 pip install -e .
 ```
 
-# Changes made to DexMV & DexMV-Learn
-
-### Files added
-
-- `test_ipynb`: Jupyter notebook with useful commands
-- `test_visualise_debug.py` : Debug script
-- `train_visualise_debug.py` : Debug script
-- `hand_imitation/env/models/assets/inspire`: Model file of Inspire hand (Converted and modified from URDF)
-
-### Scripts modified
-
-#### DexMv-Sim
-
-- `YCBRelocate` : Modified number of actuators and alternate reward structures to be improved on.
-
-- `examples/visualize_policy.py` : Modified paths to visualize from different folders.
-
-- `examples/train.py` : Integrated Tensorboard summary writer for live update of graphs.
-
-- `examples/configs/dapg-mug-example.yaml` : Configured parameters for training
-
-#### DexMv-Learn
-
-- `dexmv-learn/mjrl/mjrl/algos/dapg.py` : Sampling of demonstration data for training
-- `dexmv-learn/mjrl/mjrl/algos/behaviour_cloning.py`: Sampling of demonstration data for training
-- `dexmv-learn/mjrl/mjrl/policies/gaussian_mlp.py`: Sampling of demonstration data for training
-
-<hr/>
-
-### The file structure is listed as follows:
+3. The file structure is listed as follows:
 
 `dexmv-sim/hand_imitation/`: environments, kinematics retargeting, and demonstration generation
 
@@ -168,9 +134,37 @@ python train.py --cfg configs/dapg-mug-example.yaml  # run this in the `example`
 Similarly, there are several config files for other tasks and algorithms in the `example/configs` directory you can use
 for training.
 
+## Hand Motion Retargeting
+
+In this repo, we provide an minimal example for retargeting the human hand to robot hand. The pose data of an example
+trajectory are also provided here for convenience.
+
+The following code takes the human hand pose estimation results and retargets it to robot joint position sequence. The
+result sequence will be saved as `example_retargeting.pkl`
+
+```bash
+python retarget_human_hand.py --hand_dir=./retargeting_source/relocate_mustard_example_seq/hand_pose --output_file=example_retargeting.pkl
+```
+
+To visualize the retargeted robot trajectory along with the object, you can run the following:
+
+```bash
+python visualize_retargeting.py --retargeting_result=example_retargeting.p --object_dir=./retargeting_source/relocate_mustard_example_seq/object_pose
+```
+
+**Note:** Demonstration generation is more than hand motion retargeting. It also involves trajectory generation, time
+alignment, inverse dynamics and hindsight, to match the state and action space defined by RL environment. Please check
+the [demo_generation.md](docs/demo_gen.md)
+
+![Retargeting](docs/retargeting.gif)
+
 ## Environment
 
 If you want to use our simulated environment for your own research, check the [env.md](docs/env.md)
+
+## Demonstration Generation
+
+For more details about demonstration generation, check the [demo_generation.md](docs/demo_gen.md)
 
 ## Acknowledge
 
@@ -181,3 +175,4 @@ from [robosuite](https://github.com/ARISE-Initiative/robosuite), [soil](https://
 
 We also thank for Jiashun Wang for insightful discussions for the connection between human and robot hand, and thanks
 the DexPilot authors for their detailed explanation of their method.
+
