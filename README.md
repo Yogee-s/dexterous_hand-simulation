@@ -70,6 +70,7 @@ pip install -e .
 ### Files added
 
 - `test.ipynb`: Jupyter notebook with useful commands
+- `test_archive.ipynb`: Jupyter notebook with other commands
 - `test_visualise_debug.py` : Debug script
 - `train_visualise_debug.py` : Debug script
 - `hand_imitation/env/models/assets/inspire`: Model file of Inspire hand (Converted URDF to Mujoco XML)
@@ -83,6 +84,7 @@ pip install -e .
 - `examples/visualize_policy.py` : Modified paths to visualize trained models from different folders.
 
 - `examples/train.py` : Integrated Tensorboard summary writer for live update of graphs. Refer to test.ipynb to see command.
+  - ![Tensorboard](docs/tensorboard_example.jpg)
 
 - `examples/configs/dapg-mug-example.yaml` : Configured parameters for training.
 

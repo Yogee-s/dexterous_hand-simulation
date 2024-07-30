@@ -16,19 +16,19 @@ NUM_CPU: 10
 
 #New configurations
 #####################################
-NUM_ITER: 2000
+NUM_ITER: 5000
 # BC_INIT: true
 USE_DAPG: true
 # DEMO_FILE: ../demonstrations/relocate-mustard_bottle.pkl
 # ENV_NAME: relocate-mustard_bottle-0.8
 DAPG_LAM0: 0.8
-DAPG_LAM1: 0.99
+DAPG_LAM1: 0.80
 # DEMO_FILE: ../demonstrations/relocate-tomato_soup_can.pkl
 # ENV_NAME: relocate-tomato_soup_can-0.8
 
-SAVE_FREQ: 50
-# CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_models_mug/trained_model_mug_working_wrong_ori/policy_1000.pickle"
-# CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_models_mug/trained_model_mug_working_wrong_ori/baseline_1000.pickle"
+SAVE_FREQ: 100
+# CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_0.5_Demo_coeff/policy_400.pickle"
+# CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_0.5_Demo_coeff/baseline_400.pickle"
 ######################################
 
 
