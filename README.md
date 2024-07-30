@@ -55,10 +55,12 @@ conda env update -f environment.yml # If there are issues, can try using dexmv_e
 conda activate dexmv
 pip install -e .
 
+
 # Download the code from dexmv-learn repo for the RL/Imitation algorithm.
 # dexmv-learn is necessary in order to test on pretrained model or train from scratch, either with RL or with imitation.
 cd $DEXMV_PACKAGE_PATH
-git clone https://github.com/yzqin/dexmv-learn
+#Download the dexmv-learn from gitlab
+git clone https://gitlab.com/artc-robotics/cartin-lfd/lfd_hand/dexterous-hand-learning.git
 cd dexmv-learn
 pip install -e .
 cd mjrl
