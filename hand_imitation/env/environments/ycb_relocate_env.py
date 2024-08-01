@@ -11,7 +11,7 @@ from hand_imitation.env.utils.random import np_random
 
 
 class YCBRelocate(MujocoEnv):
-    def __init__(self, has_renderer, render_gpu_device_id=0, object_name="mug", object_scale=1, randomness_scale=1,
+    def __init__(self, has_renderer, render_gpu_device_id=0, object_name="mustard-bottle", object_scale=1, randomness_scale=1,
                  use_visual_obs=False, **kwargs):
         self.np_random = None
         ##########################################################################################################
