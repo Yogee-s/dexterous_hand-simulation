@@ -37,7 +37,10 @@
         </asset>
         
         <worldbody>
-                <body name="hand" pos="-0.35 -0.75 -0.63">
+                <!-- Change hand pos to this for the mustard bottle-->
+                <!-- <body name="hand" pos="-0.35 -0.75 -0.63"> -->
+                <!-- Change hand pos to this for the mug-->
+                <body name="hand" pos="-0.42 -0.75 -0.6">
                         <inertial pos="0.42 0.5 0.75" quat="0 0 0.707 0.707" mass="0.3" diaginertia="0.01 0.01 0.0075"/>
                         <joint name="ARTx" pos="0.42 0.4 0.75" axis="-1 0 0" type="slide" range="-0.75 0.75" damping="20" limited="true" margin="0.01" 
                                 armature="0.001" frictionloss="0.001"/>

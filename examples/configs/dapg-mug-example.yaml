@@ -21,14 +21,14 @@ NUM_ITER: 5000
 USE_DAPG: true
 DEMO_FILE: ../demonstrations/relocate-mustard_bottle.pkl
 ENV_NAME: relocate-mustard_bottle-0.8
-DAPG_LAM0: 0.2 # DEMO Coefficient
-DAPG_LAM1: 0.80 # Decay Coefficient
+DAPG_LAM0: 0.7 # DEMO Coefficient
+DAPG_LAM1: 0.7 # Decay Coefficient
 # DEMO_FILE: ../demonstrations/relocate-tomato_soup_can.pkl
 # ENV_NAME: relocate-tomato_soup_can-0.8
 
-SAVE_FREQ: 100
-CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_12DOF/mustard_bottle/dapg_relocate-mustard_bottle-0.8_relocate-mustard_bottle_1.0_100_trpo_seed200/iterations/policy_500.pickle"
-CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_12DOF/mustard_bottle/dapg_relocate-mustard_bottle-0.8_relocate-mustard_bottle_1.0_100_trpo_seed200/iterations/baseline_500.pickle"
+SAVE_FREQ: 50
+# CHECKPOINT_POLICY: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_12DOF/mustard_bottle/dapg_relocate-mustard_bottle-0.8_relocate-mustard_bottle_1.0_100_trpo_seed200/iterations/policy_500.pickle"
+# CHECKPOINT_BASELINE: "/home/xiaoyu/Desktop/yogee/dexmv-sim/trained_model_12DOF/mustard_bottle/dapg_relocate-mustard_bottle-0.8_relocate-mustard_bottle_1.0_100_trpo_seed200/iterations/baseline_500.pickle"
 ######################################
 
 

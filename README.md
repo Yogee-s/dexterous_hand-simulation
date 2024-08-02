@@ -169,12 +169,20 @@ for training.
 
 If you want to use our simulated environment for your own research, check the [env.md](docs/env.md)
 
+## To take note 
+- When visualizing the model for the mug or mustard, remember to edit the handright9253.xml file for the hand pos as I trained then in different position to get better performance.
+- Currently the model for the mustard bottle is decent but converges at a low number. Could be due to the decay and demo coefficient in the config files. Play around with these parameters. Generally should aim for high demo and low decay.
+- I only have used the DAPG algorithm in the DexMV-Learn repo as it was stated to be best in the project page, but feel free to explore other algorithms as well like SOIL or even initializing with behaviour cloning.
+
+
 ## TODO in the future
 
 - Work on training reallocation task for different objects (Start with mustard bottle)
-  - Modify reward structure to penalise orientation of object
-  - Work on making hand turn sideways before grabing
+  - <del>Modify reward structure to penalise orientation of object</del> (Found out keeping reward structure simple worked the best)
+  - <del>Work on making hand turn sideways before grabing</del> (Completed)
+- Work on a visualize.py code that can randomise the objects each time. So you can view the model performance on different objects
 - Work on training model to complete pour and place inside tasks
+- Integrate model with the actual UR robot and dexterous hand
 
 ## Acknowledge
 
